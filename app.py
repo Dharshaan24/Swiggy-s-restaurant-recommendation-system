@@ -4,7 +4,7 @@ import joblib
 from recommender import Recommender
 
 # Title
-st.title("🍽️ Swiggy Restaurant Recommendation System")
+st.title("Swiggy Restaurant Recommendation System")
 
 # Load recommender
 rec = Recommender()
@@ -52,7 +52,7 @@ algo = st.sidebar.radio(
 # -------------------------------
 if st.sidebar.button("Get Recommendations"):
     
-    st.subheader("Top Recommended Restaurants 🍛")
+    st.subheader("Top Recommended Restaurants")
 
     # Encode user input
     user_vec = rec.encode_user_input(city, cuisine, rating, cost)
@@ -70,8 +70,9 @@ if st.sidebar.button("Get Recommendations"):
     # Display results
     for idx, row in results.iterrows():
         st.write(f"### 🍴 {row['name']} ({row['city']})")
-        st.write(f"⭐ Rating: {row['rating']}")
-        st.write(f"💰 Cost: ₹{row['cost']}")
+        st.write(f"Rating: {row['rating']}")
+        st.write(f"Cost: ₹{row['cost']}")
         st.write(f"📍 Address: {row['address']}")
         st.write(f"[🔗 View on Swiggy]({row['link']})")
         st.write("---")
+
